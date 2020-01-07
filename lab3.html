@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Лаба 3</title>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    </head>
+    <body style="background: #a7ebb3">
+        <br>
+        <div align="center"> <h1> Лаба 3 </h1> </div> 
+        <div align="center"> <h2> Вариант 7 </h2> </div>
+        <div align="center"> <h3> Выполнил студент группы КИУКИ-17-1 Скорик В. </h3> </div>
+        <p style="border: 3px solid #000;
+            height: 187px;
+            width: 250px;"
+            id="image-container">
+        <img id="placeimg"src="park.jpg"/>
+        <br>
+        <label id='imglabel'>Красота!</label>
+        </p>
+        <br>
+        <hr>
+        <form name="f1">
+        <br>
+        <select name="place" id="s1">
+        <option value="park.jpg" >Парк Шевченко</option>
+        <option value="stadium.jpg">Стадион "Металлист"</option>
+        <option value="fountain.jpg">Фонтан "Зеркальная струя"</option>
+        <option value="cathedral.jpg" >Благовещенский Собор</option>
+        <option value="square.jpg" >Площадь Конституции</option>
+        <option value="gardens.jpg" >Ботанический сад</option>
+        </select>
+        <input type="button" onclick="f()" value="выбрать">
+        </form>
+        <script>
+            function f(){
+            var a=document.getElementById('s1').value;
+            $('#image-container img').attr('src', a);
+            var imH = document.getElementById('placeimg').height
+            var imW = document.getElementById('placeimg').width
+            $("p").width(function(i,val){
+            return imW;
+            });
+            $("p").height(function(i,val){
+            return imH;
+            });
+        };
+            function wPlus(){
+            $("img").width(function(i,val){
+            return val+10;
+            });
+            $("p").width(function(i,val){
+            return val+10;
+            });  
+        };
+
+            function wMinus(){
+            $("img").width(function(i,val){
+            return val-10;
+            });
+            $("p").width(function(i,val){
+            return val-10;
+            });  
+        };
+
+            function hPlus(){
+            $("img").height(function(i,val){
+            return val+10;
+            });
+            $("p").height(function(i,val){
+            return val+10;
+            });  
+        };
+
+            function hMinus(){
+            $("img").height(function(i,val){
+            return val-10;
+            });
+            $("p").height(function(i,val){
+            return val-10;
+            });  
+        };
+
+            function bPlus(){
+            $("p").css("border-width", "thick") 
+        };
+
+            function bDef(){
+            $("p").css("border-width", "medium") 
+        };
+
+            function bMinus(){
+            $("p").css("border-width", "thin") 
+        };
+            function labelchange(){
+            $("#imglabel").text("Харьков - лучший город!");
+        };
+
+        </script>
+        <br>
+        <a> Увеличить/уменьшить высоту на 10 пикселей </a> <br>
+        <input type="button" onclick="hPlus()" value="+10">
+        <input type="button" onclick="hMinus()" value="-10">
+        <br>
+        <a> Увеличить/уменьшить ширину на 10 пикселей </a> <br>
+        <input type="button" onclick="wPlus()" value="+10">
+        <input type="button" onclick="wMinus()" value="-10">
+        <br>
+        <a> Увеличить/уменьшить толщину рамки </a> <br>
+        <input type="button" onclick="bPlus()" value="Толстая">
+        <input type="button" onclick="bDef()" value="По умолчанию">
+        <input type="button" onclick="bMinus()" value="Тонкая">
+        <br>
+        <br>
+        <input type="button" onclick="labelchange()" value="Изменение текста в элементе label">
+    </body>
+</html>
